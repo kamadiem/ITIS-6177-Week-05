@@ -44,7 +44,6 @@ app.post('/student', async, (req, res) => {
     res.end(JSON.stringify(val)) 
 });
 
-
 app.get('/customer',async (req, res) => {
   await createConnection();
   const val = await conn.query("select * from customer;");
@@ -52,3 +51,16 @@ app.get('/customer',async (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   res.end(JSON.stringify(val))
 })
+
+app.get('/company',async (req, res) => {
+  await createConnection();
+  const val = await conn.query("select * from company;");
+  console.log("val is: ", val);
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify(val))
+})
+
+
+app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`)
+});
