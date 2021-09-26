@@ -42,7 +42,7 @@ app.get('/student', async (req, res) => {
 
 app.post('/student', (req, res) => {
   const { body } = req;
-  const { name = '', titie = '', className = '', section = '', rollId = '' } = body
+  const { name = '', title = '', className = '', section = '', rollId = '' } = body
   const val = await conn.query(`update student SET name = ${name}, title = ${title}, class = ${className}, section =${section} where rollId = ${rollId}`);
   res.setHeader('Content-Type', 'application/json')
   console.log("val is: ", val);
@@ -51,7 +51,7 @@ app.post('/student', (req, res) => {
 
 app.patch('/student', (req, res) => {
   const { body } = req;
-  const { name = '', titie = '', className = '', section = '', rollId = '' } = body
+  const { name = '', title = '', className = '', section = '', rollId = '' } = body
   const val = await conn.query(`update student SET name = ${name}, title = ${title}, class = ${className}, section =${section} where rollId = ${rollId}`);
   res.setHeader('Content-Type', 'application/json')
   console.log("val is: ", val);
